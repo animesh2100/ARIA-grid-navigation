@@ -16,4 +16,4 @@ g.setWrapRow(true); // allows navigation to wrap to next row when last row is re
 # PREREQUISITE
 1 - Depends on jQuery library 
 
-2 - The grid element must specify aria roles in html as role='grid' for the container element, role='row' for grid rows and role='gridcell' for cells
+2 - The grid element must specify aria roles in html as role='grid' for the container element, role='row' for grid rows and role='gridcell' for cells. It will also treat column headers as a cell, if role='columnheader' is specified
