@@ -1,0 +1,13 @@
+.grid{
+			width:500px;
+			height:60px;
+		}
+		.row{
+			width:100%;
+		}
+		.cell{
+			width:150px;
+			height:50px;
+			border:1px solid blue;
+			float:left;
+		}
