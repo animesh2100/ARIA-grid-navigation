@@ -36,11 +36,15 @@ function grid(elem)
 			}
 			
 		};
+		//exposed method
 		this.setWrapCol = function(bWrapCol){
-			oSelf.wrapCol = (bWrapCol) ? true : false;
+			if(typeof !!bWrapCol !== 'boolean'){ return }
+			oSelf.wrapCol = bWrapCol;
 		};
+		//exposed method
 		this.setWrapRow = function(bWrapRow){
-			oSelf.wrapRow = (bWrapRow) ? true : false;
+			if(typeof !!bWrapRow !== 'boolean'){ return }
+			oSelf.wrapRow = bWrapRow;
 		};
 		this.bindEvents = function(){
 			$(elem).find('[role="gridcell"], [role="columnheader"]').on('keydown click focus', oSelf.handleEvents).focus();
