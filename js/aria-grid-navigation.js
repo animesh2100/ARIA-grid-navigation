@@ -47,8 +47,10 @@ function grid(elem)
 		};
 		
 		this.moveToCell = function(sDirection){
-			switch(sDirection.toLowerCase()){
-				case 'left':
+			switch(sDirection){
+			    
+				//left
+				case 37:
 						//if reached 1st cell in a row
 						if(oSelf.curCellIndex-1 >= 0){
 							$(oSelf.grid[oSelf.curRowIndex][oSelf.curCellIndex]).attr({style: 'background-color:none',tabindex:'-1' });//.blur();
@@ -62,7 +64,8 @@ function grid(elem)
 						}
 				break;
 				
-				case 'up':
+				//up
+				case 38:
 						if(oSelf.curRowIndex-1 >= 0){
 							$(oSelf.grid[oSelf.curRowIndex][oSelf.curCellIndex]).attr({style: 'background-color:none',tabindex:'-1' });//.blur();
 							oSelf.curRowIndex--;	
@@ -74,7 +77,8 @@ function grid(elem)
 						}
 				break;
 				
-				case 'right':
+				//right
+				case 39:
 						if(oSelf.curCellIndex+1 <= oSelf.grid[0].length-1){
 							$(oSelf.grid[oSelf.curRowIndex][oSelf.curCellIndex]).attr({style: 'background-color:none',tabindex:'-1' });//.blur();
 							oSelf.curCellIndex++;
@@ -86,7 +90,8 @@ function grid(elem)
 						}
 				break;
 				
-				case 'down':
+				//down
+				case 40:
 						if(oSelf.curRowIndex+1 <= oSelf.grid.length-1){
 							$(oSelf.grid[oSelf.curRowIndex][oSelf.curCellIndex]).attr({style: 'background-color:none',tabindex:'-1' });//.blur();
 							oSelf.curRowIndex++;
@@ -123,25 +128,11 @@ function grid(elem)
 		};
 		
 		this.handleEvents = function(e){
-			switch(e.type){
+			var aKeyCodes = [39,37,38,40];
+			switch(e.type){	
 				case 'keydown':
-					switch(e.keyCode){
-						case 39:
-							oSelf.moveToCell('right');
-						break;
-						
-						case 37:
-							oSelf.moveToCell('left');
-						break;
-						
-						case 38:
-							oSelf.moveToCell('up');
-						break;
-						
-						case 40:
-							oSelf.moveToCell('down');
-						break;
-					}
+					if(aKeyCodes.indexOf(e.keyCode)== -1){ return;}
+					oSelf.moveToCell(e.keyCode);
 				break;
 				
 				case 'click':
